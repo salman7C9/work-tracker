@@ -1,0 +1,40 @@
+# Simple C#/.NET CI Build.
+# Test, that the repository contains a clean and working code.
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: false
+
+      - name: Install .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Test
+        run: |
+          cd ./TimeTracker
+          dotnet test --no-build --verbosity normal
+
+      - name: Build
+        run: |
+          cd ./TimeTracker
+          dotnet build
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: time-tracker-debug
+          path: bin
