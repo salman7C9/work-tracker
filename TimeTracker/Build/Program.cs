@@ -2,8 +2,9 @@
 {
     public class Program
     {
-        public static void Main(string[] args) {
-                new Program().Foo(4);
+        public static void Main(string[] args)
+        {
+            new Program().Foo(4);
         }
 
         public bool Foo(int bar)
