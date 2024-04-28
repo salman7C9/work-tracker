@@ -38,3 +38,27 @@ jobs:
         with:
           name: time-tracker-debug
           path: bin
+
+  lintformat:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: false
+
+      - name: Install .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Prepare formatter tool
+        run: |
+          dotnet tool install --global dotnet-format
+
+      - name: Lint
+        run: |
+          cd ./TimeTracker
+          dotnet format --verify-no-changes
