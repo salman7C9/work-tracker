@@ -1,2 +1,2 @@
-dotnet run --project TimeTracker/Build/Build.csproj -- $args
+dotnet run --project WorkTracker/Build/Build.csproj -- $args
 exit $LASTEXITCODE;

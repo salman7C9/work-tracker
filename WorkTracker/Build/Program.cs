@@ -9,7 +9,7 @@
 
         public bool Foo(int bar)
         {
-            Console.WriteLine("Hello, World, I am the new TimeTracker Project!");
+            Console.WriteLine("Hello, World, I am the new WorkerTracker Project!");
 
             if (bar == 4)
             {
