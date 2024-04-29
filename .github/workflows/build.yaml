@@ -1,6 +1,8 @@
 # Simple C#/.NET CI Build.
 # Test, that the repository contains a clean and working code.
 
+name: Build C# / .NET
+
 on:
   push:
     branches:
