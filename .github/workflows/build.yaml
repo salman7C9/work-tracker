@@ -28,7 +28,7 @@ jobs:
       - name: Test
         run: |
           cd ./WorkTracker
-          dotnet test --no-build --verbosity normal
+          dotnet test --verbosity normal
 
       - name: Build
         run: |
