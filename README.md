@@ -17,6 +17,13 @@ So we can see our progress and also our satisfaction with our work.
 
 To compile and run the project locally, do this:
 
+```sh
+cd ./WorkTracker
+dotnet build
+dotnet run
 ```
-foo bar.
+
+Alternatively we are providing a wrapper you can use:
+```sh
+./run.sh
 ```
