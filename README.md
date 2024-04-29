@@ -1,5 +1,7 @@
 # Time Tracker or Work Tracker
 
+[![Build C# / .NET](https://github.com/salman7C9/work-tracker/actions/workflows/build.yaml/badge.svg?branch=main)](https://github.com/salman7C9/work-tracker/actions/workflows/build.yaml)
+
 ## Goal
 
 We want to be able to track our working hours.
