@@ -25,12 +25,12 @@ jobs:
 
       - name: Test
         run: |
-          cd ./TimeTracker
+          cd ./WorkTracker
           dotnet test --no-build --verbosity normal
 
       - name: Build
         run: |
-          cd ./TimeTracker
+          cd ./WorkTracker
           dotnet build
 
       - name: Upload Artifacts
@@ -60,5 +60,5 @@ jobs:
 
       - name: Lint
         run: |
-          cd ./TimeTracker
+          cd ./WorkTracker
           dotnet format --verify-no-changes
