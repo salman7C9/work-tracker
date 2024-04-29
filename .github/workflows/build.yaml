@@ -1,0 +1,66 @@
+# Simple C#/.NET CI Build.
+# Test, that the repository contains a clean and working code.
+
+name: Build C# / .NET
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: false
+
+      - name: Install .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Test
+        run: |
+          cd ./WorkTracker
+          dotnet test --verbosity normal
+
+      - name: Build
+        run: |
+          cd ./WorkTracker
+          dotnet build
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: time-tracker-debug
+          path: bin
+
+  lintformat:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: false
+
+      - name: Install .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Prepare formatter tool
+        run: |
+          dotnet tool install --global dotnet-format
+
+      - name: Lint
+        run: |
+          cd ./WorkTracker
+          dotnet format --verify-no-changes
