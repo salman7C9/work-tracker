@@ -1,6 +1,4 @@
-﻿using System.Threading;
-
-namespace Build
+﻿namespace Build
 {
     public class Program
     {
