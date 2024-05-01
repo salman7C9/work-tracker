@@ -4,19 +4,20 @@
     {
         public static void Main(string[] args)
         {
-            new Program().Foo(4);
-        }
+            var timeRecords = new List<WorkTimeRecord>();
 
-        public bool Foo(int bar)
-        {
-            Console.WriteLine("Hello, World, I am the new WorkerTracker Project!");
+            timeRecords.Add(new WorkTimeRecord());
+            Console.WriteLine($"start: {timeRecords[0]}");
 
-            if (bar == 4)
-            {
-                return false;
-            }
+            Thread.Sleep(2000);
 
-            throw new NotImplementedException("Not fully implemented.");
+            timeRecords[0].end = DateTime.Now;
+            Console.WriteLine($"end:  {timeRecords[0]}");
+
+            Console.WriteLine($"duration: {timeRecords[0].duration}");
+
+            Console.WriteLine("\nSummary:");
+            timeRecords.ForEach(x => Console.WriteLine($"- {x}"));
         }
     }
 }
