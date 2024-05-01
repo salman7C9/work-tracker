@@ -18,7 +18,7 @@ namespace Tests
             var workRecord = new WorkTimeRecord(start);
 
             // act
-            var result = workRecord.GetDuration();
+            var result = workRecord.duration;
 
             // assert
             Assert.Equal(8, result.Hours);
@@ -33,7 +33,7 @@ namespace Tests
             var workRecord = new WorkTimeRecord(start, end);
 
             // act
-            var result = workRecord.GetDuration();
+            var result = workRecord.duration;
 
             // assert
             Assert.Equal(9 * 60 + 30, result.TotalMinutes);

@@ -6,17 +6,15 @@ namespace Build
     {
         public static void Main(string[] args)
         {
-
-
-            var start = DateTime.Now;
-            Console.WriteLine($"start: {start}");
+            var timeRecord = new WorkTimeRecord();
+            Console.WriteLine($"start: {timeRecord}");
 
             Thread.Sleep(2000);
 
-            var end = DateTime.Now;
-            Console.WriteLine($"end:  {end}");
+            timeRecord.end = DateTime.Now;
+            Console.WriteLine($"end:  {timeRecord}");
 
-            Console.WriteLine($"duration: {end - start}");
+            Console.WriteLine($"duration: {timeRecord.duration}");
             //new Program().Foo(4);
         }
 

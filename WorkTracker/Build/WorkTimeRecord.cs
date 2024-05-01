@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,8 +9,9 @@ namespace Build
 {
     public class WorkTimeRecord
     {
-        DateTime start;
-        DateTime? end;
+        public DateTime start { get; set; }
+        public DateTime? end { get; set; }
+        public TimeSpan duration { get => end.GetValueOrDefault(DateTime.Now) - start; }
 
         public WorkTimeRecord() : this(DateTime.Now, null)
         {
@@ -25,9 +27,9 @@ namespace Build
             this.end = end;
         }
 
-        public TimeSpan GetDuration()
+        public override string ToString()
         {
-            return end.GetValueOrDefault(DateTime.Now) - start;
+            return $"({start}, {(end.HasValue ? end.ToString() : "-")})";
         }
     }
 }
