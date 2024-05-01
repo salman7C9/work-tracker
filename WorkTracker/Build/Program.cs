@@ -6,28 +6,20 @@ namespace Build
     {
         public static void Main(string[] args)
         {
-            var timeRecord = new WorkTimeRecord();
-            Console.WriteLine($"start: {timeRecord}");
+            var timeRecords = new List<WorkTimeRecord>();
+
+            timeRecords.Add(new WorkTimeRecord());
+            Console.WriteLine($"start: {timeRecords[0]}");
 
             Thread.Sleep(2000);
 
-            timeRecord.end = DateTime.Now;
-            Console.WriteLine($"end:  {timeRecord}");
+            timeRecords[0].end = DateTime.Now;
+            Console.WriteLine($"end:  {timeRecords[0]}");
 
-            Console.WriteLine($"duration: {timeRecord.duration}");
-            //new Program().Foo(4);
-        }
+            Console.WriteLine($"duration: {timeRecords[0].duration}");
 
-        public bool Foo(int bar)
-        {
-            Console.WriteLine("Hello, World, I am the new WorkerTracker Project!");
-
-            if (bar == 4)
-            {
-                return false;
-            }
-
-            throw new NotImplementedException("Not fully implemented.");
+            Console.WriteLine("\nSummary:");
+            timeRecords.ForEach(x => Console.WriteLine($"- {x}"));
         }
     }
 }
